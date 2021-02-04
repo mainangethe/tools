@@ -158,10 +158,7 @@ function translateEnumValues(
 				seen.set(name, constValue);
 
 				if (typeof constValue === "number") {
-					value = jsNumericLiteral.create({
-						value: constValue,
-						raw: String(constValue),
-					});
+					value = jsNumericLiteral.create({value: constValue});
 					prev = constValue;
 				} else {
 					value = jsStringLiteral.create({value: String(constValue)});
@@ -174,7 +171,7 @@ function translateEnumValues(
 		} else {
 			if (prev !== undefined) {
 				prev++;
-				value = jsNumericLiteral.create({value: prev, raw: String(prev)});
+				value = jsNumericLiteral.create({value: prev});
 				seen.set(name, prev);
 			} else {
 				throw new Error("Enum member must have initializer");

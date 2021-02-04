@@ -12,7 +12,6 @@ export interface JSNumericLiteral extends NodeBaseWithComments {
 	readonly type: "JSNumericLiteral";
 	readonly value: number;
 	readonly format?: "octal" | "binary" | "hex";
-	readonly raw: string;
 }
 
 export const jsNumericLiteral = createQuickBuilder<JSNumericLiteral, "value">(
